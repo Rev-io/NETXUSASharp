@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NETXUSASharp</id>
+    <title>NETXUSASharp</title>
+    <version>1.0.0</version>
+    <authors>Ross Overstreet</authors>
+    <owners>Ross Overstreet</owners>
+    <projectUrl>https://github.com/rossover/NETXUSASharp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An easy-to-use .NET client library for NETXUSA XML-over-REST API.</description>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\NETXUSASharp.dll" target="lib\net40\" />
+  </files>
+</package>
