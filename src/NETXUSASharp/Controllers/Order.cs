@@ -30,5 +30,12 @@ namespace NETXUSASharp.Controllers
         {
             return aConnection.Send<order, response<body_order>>(Enums.HttpVerbs.Post, Routes.OrderPost(), anOrder);
         }
+
+        public static response<body_order_search> Search(Connector aConnection, Enums.OrderSearchField aSearchField, string aValue)
+        {
+            return aConnection.Send<response<body_order_search>>(Enums.HttpVerbs.Get, Routes.OrderSearch(aSearchField, aValue));
+        }
+
+
     }
 }

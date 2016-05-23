@@ -10,6 +10,9 @@ namespace NETXUSASharp.Demo
             using (var auth = new Auth())
             using (var c = new Connector(auth.url, auth.username, auth.password))
             {
+                var search = Order.Search(c, Enums.OrderSearchField.PO, "TEST ORDER");
+                Console.WriteLine(search.ToXml());
+
                 var product = Product.Get(c, "Yealink", "SIP-T21P_E2");
                 Console.WriteLine(product.ToXml());
 

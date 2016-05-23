@@ -14,6 +14,10 @@
         {
             return "/order";
         }
+        public static string OrderSearch(Enums.OrderSearchField searchField, string value)
+        {
+            return $"/order/search?{searchField}={System.Uri.EscapeUriString(value)}";
+        }
         public static string ProductGet(string manufacturer, string partNumber)
         {
             return $"/product/{manufacturer}/{partNumber}";
