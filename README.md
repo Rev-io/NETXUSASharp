@@ -1,6 +1,6 @@
 # NETXUSASharp
 
-An easy-to-use .NET client library for NETXUSA REST API.  
+An easy-to-use .NET client library for NETXUSA's XML-over-REST API.  
 
 # How to add to your project
 
