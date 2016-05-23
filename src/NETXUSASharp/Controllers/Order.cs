@@ -12,16 +12,15 @@ namespace NETXUSASharp.Controllers
         /// </summary>
         public static response<body_order> Delete(Connector aConnection, int orderId)
         {
-            return aConnection.Send(Enums.HttpVerbs.Delete, Routes.OrderDelete(orderId)).ToObject<response<body_order>>();
+            return aConnection.Send<response<body_order>>(Enums.HttpVerbs.Delete, Routes.OrderDelete(orderId));
         }
 
         /// <summary>
         /// Lookup an existing order by NETXUSA's order ID.
-        /// 
         /// </summary>
         public static response<body_order> Get(Connector aConnection, int orderId)
         {
-            return aConnection.Send(Enums.HttpVerbs.Get, Routes.OrderGet(orderId)).ToObject<response<body_order>>();
+            return aConnection.Send<response<body_order>>(Enums.HttpVerbs.Get, Routes.OrderGet(orderId));
         }
 
         /// <summary>
@@ -29,7 +28,7 @@ namespace NETXUSASharp.Controllers
         /// </summary>
         public static response<body_order> Post(Connector aConnection, order anOrder)
         {
-            return aConnection.Send(Enums.HttpVerbs.Post, Routes.OrderPost(), anOrder.ToXml()).ToObject<response<body_order>>();
+            return aConnection.Send<order, response<body_order>>(Enums.HttpVerbs.Post, Routes.OrderPost(), anOrder);
         }
     }
 }

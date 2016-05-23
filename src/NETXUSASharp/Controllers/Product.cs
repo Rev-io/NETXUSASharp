@@ -11,7 +11,7 @@ namespace NETXUSASharp.Controllers
         /// </summary>
         public static response<body_product> Get(Connector aConnection, string manufacturer, string partNumber)
         {
-            return aConnection.Send(Enums.HttpVerbs.Get, Routes.ProductGet(manufacturer, partNumber)).ToObject<response<body_product>>();
+            return aConnection.Send<response<body_product>>(Enums.HttpVerbs.Get, Routes.ProductGet(manufacturer, partNumber));
         }
     }
 }
