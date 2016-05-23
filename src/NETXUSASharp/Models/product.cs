@@ -1,6 +1,5 @@
 ﻿namespace NETXUSASharp.Models
 {
-    [System.Xml.Serialization.XmlType(Namespace = "https://www.netxusa.com", TypeName = "product")]
     public class product
     {
         public string resourceURL { get; set; }

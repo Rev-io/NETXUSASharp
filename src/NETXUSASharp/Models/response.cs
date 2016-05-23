@@ -3,7 +3,7 @@ using NETXUSASharp.Enums;
 
 namespace NETXUSASharp.Models
 {
-    [XmlRoot(Namespace = "https://www.netxusa.com", ElementName = "response")]
+    [XmlRoot(ElementName = "response", Namespace = "https://www.netxusa.com")]
     public class response<T> : Interfaces.IHttpLog 
         where T: body
     {

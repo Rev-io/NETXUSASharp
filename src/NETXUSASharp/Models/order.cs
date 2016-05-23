@@ -1,6 +1,6 @@
 ﻿namespace NETXUSASharp.Models
 {
-    [System.Xml.Serialization.XmlType(Namespace = "https://www.netxusa.com", TypeName = "order")]
+    [System.Xml.Serialization.XmlType(Namespace = "https://www.netxusa.com")]
     public class order
     {
         public string resourceURL { get; set; }
