@@ -2,8 +2,8 @@
 {
     public class shipping
     {
-        public string shipper { get; set; }
-        public string method { get; set; }
+        public Enums.ShippingCarrier? shipper { get; set; }
+        public Enums.ShippingMethod? method { get; set; }
         public decimal? quote { get; set; }
         public object options { get; set; }
     }

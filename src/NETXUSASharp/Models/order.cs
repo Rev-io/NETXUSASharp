@@ -20,7 +20,7 @@
         public tracking[] trackingInformation { get; set; }
         public address billingAddress { get; set; }
         public address shippingAddress { get; set; }
-        public address endUserAddress { get; set; }
+        public endUserAddress endUserAddress { get; set; }
         public additionalOption[] additionalOptions { get; set; }
         public payment payment { get; set; }
         public Enums.YesNo? acceptTermsAndConditions { get; set; }

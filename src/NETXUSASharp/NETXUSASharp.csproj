@@ -49,17 +49,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connector.cs" />
+    <Compile Include="Enums\CreditCardType.cs" />
     <Compile Include="Enums\HttpVerbs.cs" />
     <Compile Include="Enums\RequestResult.cs" />
     <Compile Include="Enums\OrderSearchField.cs" />
+    <Compile Include="Enums\ShippingMethod.cs" />
+    <Compile Include="Enums\ShippingCarrier.cs" />
     <Compile Include="Enums\YesNo.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interfaces\IHttpLog.cs" />
+    <Compile Include="Models\endUserAddress.cs" />
     <Compile Include="Models\auth.cs" />
     <Compile Include="Models\body_order.cs" />
     <Compile Include="Models\body_order_search.cs" />
     <Compile Include="Models\body_product.cs" />
     <Compile Include="Models\body.cs" />
+    <Compile Include="Models\creditCard.cs" />
     <Compile Include="Models\error.cs" />
     <Compile Include="Models\inventory.cs" />
     <Compile Include="Models\invoice.cs" />
