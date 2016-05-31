@@ -9,16 +9,36 @@ namespace NETXUSASharp
         /// Timeout setting used for each HTTP request (in milliseconds).
         /// </summary>
         private const int _TIMEOUT = 1000*60*5;
+        private const string _DEFAULT_URL_PRODUCTION = "https://api.netxusa.com/order";
+        private const string _DEFAULT_URL_SANDBOX = "https://api.sandbox.netxusa.com/order";
 
-        private string _URL;
         private string _USERNAME;
         private string _PASSWORD;
 
-        public Connector(string url, string username, string password)
+        /// <summary>
+        /// NETXUSA's endpoint URL - default value exists but can be overridden
+        /// </summary>
+        public string URL { get; set; }
+
+        /// <summary>
+        /// Class used for managing the connection to and communicating with NETXUSA's API.
+        /// </summary>
+        /// <param name="username">Username for NETXUSA' API issued by NETXUSA</param>
+        /// <param name="password">Password for NETXUSA's API issued by NETXUSA</param>
+        /// <param name="url">Optional - override the URL of NETXUSA's API - can be used for testing, etc.</param>
+        /// <param name="test_mode">Optional - defaults to false.  If true, will use the default NETXUSA Sandbox API URL</param>
+        public Connector(string username, string password, string url = "", bool test_mode = false)
         {
-            _URL = url;
             _USERNAME = username;
             _PASSWORD = password;
+
+            if (url != null && url != "")
+            {
+                URL = url;
+            } else
+            {
+                URL = test_mode ? _DEFAULT_URL_SANDBOX : _DEFAULT_URL_PRODUCTION;
+            }
         }
 
         public TResponse Send<TResponse>(Enums.HttpVerbs method, string path)
@@ -38,7 +58,7 @@ namespace NETXUSASharp
             where TRequest : class
             where TResponse : class, new()
         {
-            var myRequest = (HttpWebRequest)WebRequest.Create(new Uri(new Uri(_URL), path));
+            var myRequest = (HttpWebRequest)WebRequest.Create(new Uri(new Uri(this.URL), path));
             myRequest.Timeout = _TIMEOUT;
             myRequest.Headers.Add("Authorization", $"Basic {Convert.ToBase64String(new System.Text.UTF8Encoding().GetBytes($"{_USERNAME}:{_PASSWORD}"))}");
             myRequest.ContentType = "application/xml";
