@@ -8,6 +8,8 @@
         public string productResourceURL { get; set; }
         public string productFullName { get; set; }
         public int? quantity { get; set; }
+        [System.Xml.Serialization.XmlArrayItem(ElementName = "label")]
+        public string[] labels { get; set; }
         public int? BOQuantity { get; set; }
         public int? shipQuantity { get; set; }
         public decimal? price { get; set; }

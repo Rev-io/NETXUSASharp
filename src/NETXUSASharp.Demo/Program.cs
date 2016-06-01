@@ -8,7 +8,7 @@ namespace NETXUSASharp.Demo
         static void Main(string[] args)
         {
             using (var auth = new Auth())
-            using (var c = new Connector(auth.url, auth.username, auth.password))
+            using (var c = new Connector(auth.username, auth.password, test_mode:true))
             {
                 var search = Order.Search(c, Enums.OrderSearchField.PO, "TEST ORDER");
                 Console.WriteLine(search.ToXml());
@@ -84,7 +84,8 @@ namespace NETXUSASharp.Demo
                         provisioningTemplate = new Models.provisioningTemplate
                         {
                             useDefaultProvisioningTemplate = ""
-                        }
+                        },
+                        labels = new string[] {"4045552345"}
                     },
                     new Models.lineItem {
                         manufacturer = "Yealink",
@@ -93,7 +94,8 @@ namespace NETXUSASharp.Demo
                         provisioningTemplate = new Models.provisioningTemplate
                         {
                             useDefaultProvisioningTemplate = ""
-                        }
+                        },
+                        labels = new string[] {"4045551234"}
                     }
                 },
                 additionalOptions = new Models.additionalOption[] {

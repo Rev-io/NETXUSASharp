@@ -3,10 +3,10 @@
   <metadata>
     <id>NETXUSASharp</id>
     <title>NETXUSASharp</title>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <authors>Ross Overstreet</authors>
     <owners>Ross Overstreet</owners>
-    <projectUrl>https://github.com/rossover/NETXUSASharp</projectUrl>
+    <projectUrl>https://github.com/Overgroup/NETXUSASharp</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An easy-to-use .NET client library for NETXUSA's XML-over-REST API.</description>
   </metadata>
