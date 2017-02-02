@@ -9,8 +9,8 @@ namespace NETXUSASharp
         /// Timeout setting used for each HTTP request (in milliseconds).
         /// </summary>
         private const int _TIMEOUT = 1000*60*5;
-        private const string _DEFAULT_URL_PRODUCTION = "https://api.netxusa.com/order";
-        private const string _DEFAULT_URL_SANDBOX = "https://api.sandbox.netxusa.com/order";
+        private const string _DEFAULT_URL_PRODUCTION = "https://api.netxusa.com/";
+        private const string _DEFAULT_URL_SANDBOX = "https://api.sandbox.netxusa.com/";
 
         private string _USERNAME;
         private string _PASSWORD;
@@ -48,6 +48,20 @@ namespace NETXUSASharp
         }
 
         /// <summary>
+        /// Combines a base URL and a path and returns a Uri
+        /// </summary>
+        /// <param name="url">Base URL optionally including a path.  E.g. http://rev.io/ or http://rev.io/directory/</param>
+        /// <param name="path">Relative path to be combined with URL</param>
+        /// <returns>System.Uri</returns>
+        private Uri PathCombineUrl(string url, string path)
+        {
+            var myBaseUri = new Uri(url.EndsWith("/") ? url : url + "/");
+            var myPath = path.StartsWith("/") ? path.Substring(1) : path;
+
+            return new Uri(myBaseUri, myPath);
+        }
+
+        /// <summary>
         /// Send an HTTP request to a NETXUSA endpoint and return the response content.
         /// </summary>
         /// <param name="method">GET, POST, or DELETE</param>
@@ -58,7 +72,7 @@ namespace NETXUSASharp
             where TRequest : class
             where TResponse : class, new()
         {
-            var myRequest = (HttpWebRequest)WebRequest.Create(new Uri(new Uri(this.URL), path));
+            var myRequest = (HttpWebRequest)WebRequest.Create(PathCombineUrl(URL, path));
             myRequest.Timeout = _TIMEOUT;
             myRequest.Headers.Add("Authorization", $"Basic {Convert.ToBase64String(new System.Text.UTF8Encoding().GetBytes($"{_USERNAME}:{_PASSWORD}"))}");
             myRequest.ContentType = "application/xml";
