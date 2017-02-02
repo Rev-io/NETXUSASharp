@@ -53,7 +53,7 @@ namespace NETXUSASharp
         /// <param name="url">Base URL optionally including a path.  E.g. http://rev.io/ or http://rev.io/directory/</param>
         /// <param name="path">Relative path to be combined with URL</param>
         /// <returns>System.Uri</returns>
-        public static Uri PathCombineUrl(string url, string path)
+        private Uri PathCombineUrl(string url, string path)
         {
             var myBaseUri = new Uri(url.EndsWith("/") ? url : url + "/");
             var myPath = path.StartsWith("/") ? path.Substring(1) : path;
