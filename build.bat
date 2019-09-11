@@ -17,4 +17,4 @@ mkdir Build
 mkdir Build\lib
 mkdir Build\lib\net40
 
-%nuget% pack "src\NETXUSASharp\NETXUSASharp.nuspec" -NoPackageAnalysis -verbosity detailed -o Build -p Configuration="%config%"
+%nuget% pack "src\NETXUSASharp\NETXUSASharp.nuspec" -NoPackageAnalysis -Verbosity detailed -OutputDirectory Build -Properties Configuration="%config%"
