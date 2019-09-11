@@ -110,9 +110,11 @@ namespace NETXUSASharp
             {
                 myResponseObject = myResponseXml.ToObject<TResponse>();
             }
-            catch
-            { 
-                myResponseObject = Activator.CreateInstance<TResponse>();
+            catch { }
+
+            if (myResponseObject == null)
+            {
+                myResponseObject = new TResponse();
             }
 
             if (myResponseObject is Interfaces.IHttpLog) {
