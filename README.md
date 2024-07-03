@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This repository is no longer updated or maintained.
+
 # NETXUSASharp
 
 An easy-to-use .NET client library for NETXUSA's XML-over-REST API.  
